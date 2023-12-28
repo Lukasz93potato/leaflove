@@ -31,6 +31,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 from rest_framework_simplejwt import views as jwt_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -44,9 +46,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    #path('app/', include('app.urls')),
 
+    path('admin/', admin.site.urls),
+    path('app/', include('app.urls')),
     path('api_test/', api_test, name='api_test'),
     path('login/', login_page, name='login_page'),
     # path('register/', register_page, name='register_page'),
@@ -63,3 +65,6 @@ urlpatterns = [
           jwt_views.TokenRefreshView.as_view(),
           name ='token_refresh')
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
