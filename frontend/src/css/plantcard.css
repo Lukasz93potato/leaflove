@@ -1,0 +1,59 @@
+.plant-card { /*pasek boczny z lewej strony*/
+  font-size: 24px;
+  width: 30vw;
+  height: 100%;
+  background: #4E6766;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: top;
+  }
+
+.plant-card>img {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 30%;
+    width: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.plantcard-name, .plantcard-water, .plantcard-fertilizer{
+  height: 5%;
+  width: 90%;
+  margin-bottom: 5%;
+  border-radius: 8px;
+  background: #5AB1BB;
+  color: #F7DD72;
+}
+
+.plantcard-name{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+.plantcard-name, .plantcard-water, .plantcard-fertilizer{
+  font-family: 'Pacifico';
+}
+
+.plantcard-buttons{
+  display:inline-block;
+}
+
+@media only screen and (max-device-width: 420px) {
+  .plant-card {
+    width: 100vw;
+    height: 65%;
+    font-size: 50px;
+  }
+  button>img {
+    width: 25vw;
+  }
+
+  .plantcard-name, .plantcard-water, .plantcard-fertilizer{
+    height: 10vh;
+  }
+}

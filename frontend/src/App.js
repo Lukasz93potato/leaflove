@@ -4,6 +4,9 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
+import Register from './components/Register';
+import Folders from './components/Folders';
+import AddPlant from './components/AddPlant';
 
 // Komponent NotFound jest zakomentowany, więc został usunięty z tego przykładu
 
@@ -27,6 +30,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/api_test" element={<p>{message}</p>} />
             <Route path="/login" element={<Login />} />
+              <Route path="/Register" element={<Register />} />
+              <Route path="/Folders" element={<Folders />} />
+              <Route path="/AddPlant" element={<AddPlant />} />
           </Routes>
       </div>
     </Router>

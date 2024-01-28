@@ -1,0 +1,248 @@
+/** {font-size: 24px;}*/
+
+
+.search_bar{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+input[type="searchbar"]{
+    font-size: 20px;
+    width: 57%;
+    height: auto;
+    border: none;
+    /*background: none;*/
+    padding: 10px;
+    cursor: pointer;
+    background-color: #5AB1BB;
+}
+
+.plant_card{
+    font-size: 24px;
+  width: 550px;
+  background: #4E6766;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.plantcard-name, .plantcard-water, .plantcard-fertilizer{
+  font-family: 'Roboto', sans-serif;
+}
+
+.plantcard-name, .plantcard-water, .plantcard-fertilizer{
+  height: 35px;
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #5AB1BB;
+  color: #F7DD72;
+}
+
+.plant_card>img {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 300px;
+    width: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.folders {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    overflow: auto;
+}
+
+
+.folder-container, .name-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #5AB1BB;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}
+
+.folder-container {
+    width: 250px;
+    height: 350px;
+}
+
+.name-container {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    background-color: #4E6766;
+    color: #F7DD72;
+    font-family: 'Roboto', sans-serif;
+}
+
+.folders>div>img {
+    margin-top: 20px;
+    height: 50%;
+    width: 85%;
+    object-fit: cover;
+    border-radius: 8px;
+
+}
+
+section.folder-form {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: #F7DD72;
+    font-family: 'Nunito', sans-serif;
+    background-color: #5AB1BB;
+    text-align: right;
+}
+
+button {
+    background-color: #4E6766;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.folder-form h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.folder-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-form .messages {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.folder-form input, select, textarea {
+    margin-top: 10px;
+    color: #4E6766;
+    background: white;
+}
+
+input::placeholder{
+    color:  #4E6766;
+}
+
+.selected {
+    background-color: #F7DD72;
+}
+
+.base-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+    height: 100vh;
+}
+
+.folders_page_layout {
+  font-size: 16px;
+  /*font-size: 24px;*/
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.search_bar_and_folders{
+    flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+  border-bottom: 1px solid gray;
+}
+
+@media only screen and (max-width: 667px) {
+
+    .folders_page_layout {
+        flex-direction: column; /* Stack components vertically on smaller screens */
+    }
+
+    .search_bar_and_folders {
+        flex-direction: column;
+    }
+
+    .plantcard-name, .plantcard-water, .plantcard-fertilizer{
+    height: auto;
+
+    width: 90%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #5AB1BB;
+    color: #F7DD72;
+    }
+
+    .plant_card {
+        width: 100%; /* Take full width on smaller screens */
+        height: 100%;
+    }
+
+    .plant_card>img {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        height: 150px;
+        width: 90%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .plantcard-buttons>button{
+        flex-direction: row;
+        padding:0%;
+    }
+
+    .plantcard-buttons>button>img{
+        height:20vh;
+    }
+
+    .folders {
+        grid-template-columns: repeat(1, 1fr); /* Adjust column count for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .folder-container {
+        width: 100%; /* Take full width on smaller screens */
+    }
+
+    .folders>div>img {
+        height: 40%; /* Make images responsive */
+        max-width: 100%; /* Ensure images don't exceed container width */
+    }
+
+    .name-container {
+    height: auto;
+}
+
+    .folders>div>img {
+        height: 40%; /* Make images responsive */
+        max-width: 100%; /* Ensure images don't exceed container width */
+    }
+
+    .search_bar{
+        width: 90%;
+    }
+    input[type="searchbar"]{
+        width: 90%;
+    }
+
+}

@@ -1,0 +1,102 @@
+* {border-radius: 5px;}
+
+body {
+    margin:0;
+}
+
+.folder-form, .folder-form form {
+    display: flex;
+    flex-direction: column;
+    color: #F7DD72;
+    font-family: 'Nunito', sans-serif;
+    background-color: #5AB1BB;
+    margin-bottom: 30px;
+}
+
+.folder-form h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 44px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+form {
+    align-items:center;
+}
+
+button {
+    background-color: #4E6766;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    /*border-radius: 5px;*/
+    cursor: pointer;
+}
+
+input{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    /*border-radius: 5px;*/
+}
+
+input[type="name"] {
+    width: 250px;
+    /*margin-bottom: 30px;*/
+}
+
+input[type="password"] {
+    width: 200px;
+}
+
+.folder-form {
+    margin-top: 60px;
+}
+
+.folder-form button[type="submit"] {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-family: 'Nunito', sans-serif;
+    color: #F7DD72;
+}
+
+.folder-form input, select, textarea {
+    color: #4E6766;
+    background: white;
+}
+
+input::placeholder{
+    color:  #4E6766;
+}
+
+.no-valid {
+    border: 3px solid red;
+    /*border-radius: 1em;*/
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
+
+@media only screen and (max-device-width: 1667px) {
+    input{
+        width:90%;
+    }
+
+    input[type="name"] {
+    width: 90%;
+    /*margin-bottom: 30px;*/
+    }
+
+    .folder-form {
+        margin-top: 0px;
+        border-radius: 0px;
+        text-align: left;
+    }
+
+    .folder-form>a>img{
+        margin-left:0px;
+        height:10vh;
+        width:10vh;
+    }
+
+}
