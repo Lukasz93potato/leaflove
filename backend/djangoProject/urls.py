@@ -50,7 +50,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('app.urls')),
     path('api_test/', api_test, name='api_test'),
-    path('login/', login_page, name='login_page'),
     # path('register/', register_page, name='register_page'),
     path('index/', TemplateView.as_view(template_name="../../frontend/public/index.html"), name='index'),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
@@ -58,12 +57,6 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('', include('authentification.urls')),
     #path('logout/', views.LogoutView.as_view(), name ='logout'),
-    path('token/',
-          jwt_views.TokenObtainPairView.as_view(),
-          name ='token_obtain_pair'),
-     path('token/refresh/',
-          jwt_views.TokenRefreshView.as_view(),
-          name ='token_refresh')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
