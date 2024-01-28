@@ -12,8 +12,8 @@ oraz przypominanie mu o ich podlewaniu i nawożeniu.
 
 
 ##Zastosowane technologie
-Xampp
-Języki: PHP, JavaScript, PostgreSQL
+Django, React
+Języki: Python, JavaScript, PostgreSQL
 
 
 ##Front-end
@@ -21,43 +21,78 @@ Języki: PHP, JavaScript, PostgreSQL
 Widoki:
  - Logowania użytkownika
     Zawiera formularz logowania użytkownika oraz link do widoku rejestracji.
+
+![Zrzut ekranu 2024-01-28 175853.png](Zrzut%20ekranu%202024-01-28%20175853.png)
+
  - Rejestracja nowego użytkownika
- - Widok roślin należących do użytkownika
- - Karta z wybraną rośliną 
+
+![Zrzut ekranu 2024-01-28 175910.png](Zrzut%20ekranu%202024-01-28%20175910.png)
+
+ - Widok roślin należących do użytkownika oraz karta z wybraną rośliną
+
+![Zrzut ekranu 2024-01-28 180106.png](Zrzut%20ekranu%202024-01-28%20180106.png)
+
  - Dodanie nowej rośliny
+
+![Zrzut ekranu 2024-01-28 180120.png](Zrzut%20ekranu%202024-01-28%20180120.png)
 
 ##Back-end
 
-Baza danych projektu została utworzona za pomocą aplikacji Railway.app i składa się z 2 tabel: "Users" 
-zawierającej dane zarejestrowanych użytkowników oraz "Plants" zawierającej dane utworzonych przez użytkownika roślin.
 Poniżej została zamieszczona dokumentacja tabel bazy:
 
-Users:
-| Nazwa pola: | Typ danych:   | Opis:                                                     |
-| ----------- | ------------- | --------------------------------------------------------- |
-| id          | int           | Identyfikator użytkownika,  Klucz główny tabeli           |
-| name        | varchar(100)  | Imię użytkownika                                          |
-| surname     | varchar(100)  | Nazwisko użytkownika                                      |
-| email       | varchar(100)  | adres email użytkownika                                   |
-| password    | varchar(100)  | hasło użytkownika zahashowane za pomocą algorytmu bcrypt  |
+auth_user:
+
+| Nazwa pola:  | Typ danych:             | Opis:                                           |
+|--------------|-------------------------|-------------------------------------------------|
+| id           | int                     | Identyfikator użytkownika,  Klucz główny tabeli |
+| password     | varchar(128)            | hasło użytkownika                               |
+| last_login   | timestamp with timezone | ostatni czas logowania użytkownika              |
+| is_superuser | boolean                 | Czy użytkownik to "superuser"                   |
+| username     | varchar(150)            | Nazwa użytkownika                               |
+| first_name   | varchar(150)            | Imię użytkownika                                |
+| last_name    | varchar(150)            | Nazwisko użytkownika                            |
+| email        | varchar(100)            | adres email użytkownika                         |
+| is_staff     | boolean                 | czy użytkownik należy do grupy "staff"          |
+| is_active    | boolean                 | czy użytkownik jest aktywny                     |
+| date_joined  | timestamp with timezone | czas dołączenia                                 |
 
 
 
-Plants:
-| Nazwa pola:        | Typ danych:     | Opis:                                                                                   |
-| ------------------ | --------------- | --------------------------------------------------------------------------------------- |
-| id                 | int             | Identyfikator rośliny,  Klucz główny tabeli                                             |
-| id_user            | int             | Klucz obcy tabeli "Users"( relacja jeden do wielu z tabeli "Users" do tabeli "Plants")  |
-| name               | varchar(100)    | Nazwa rośliny                                                                           |
-| water_cycle        | int             | Ilość dni co którą należy podlewać roślinę                                              |
-| water_last         | date            | Data kiedy roślina została ostatni raz podlana                                          |
-| fertilizer_cycle   | int             | Ilość dni co którą należy nawozić roślinę                                               |
-| fertilizer_last    | date            | Data kiedy roślina została ostatni raz nawieziona                                       |
-| created_at         | date            | Data utworzenia rośliny                                                                 |
-|image               | varchar(100)    | nazwa pliku ze zdjęciem rośliny wraz z rozszerzeniem                                    |
+app_plants:
 
+| Nazwa pola:      | Typ danych:  | Opis:                                             |
+|------------------|--------------|---------------------------------------------------|
+| id               | int          | Identyfikator rośliny,  Klucz główny tabeli       |
+| name             | varchar(100) | Nazwa rośliny                                     |
+| image            | varchar(100) | ścieżka do pliku                                  |
+| water_last       | date         | Data kiedy roślina została ostatni raz podlana    |
+| water_cycle      | int          | Ilość dni co którą należy podlewać roślinę        |
+| fertilizer_last  | date         | Data kiedy roślina została ostatni raz nawieziona |
+| fertilizer_cycle | int          | Ilość dni co którą należy nawozić roślinę         |
+| user_id          | int          | Id użytkownika, do którego należy roślina         |
+| description_id   | bigint       | Id opisu rośliny                                  |
 
+app_description:
 
+| Nazwa pola: | Typ danych: | Opis:                       |
+|-------------|-------------|-----------------------------|
+| id          | int         | Identyfikator opisu rośliny |
+| text        | text        | Opis rośliny                |
+
+app_plants_tags:
+
+| Nazwa pola: | Typ danych: | Opis:                 |
+|-------------|-------------|-----------------------|
+| id          | int         | Identyfikator rekordu |
+| plant_id    | bigint      | Identyfikator rośliny |
+| tag_id      | bigint      | Identyfikator tagu    |
+
+app_tag:
+
+| Nazwa pola: | Typ danych: | Opis:              |
+|-------------|-------------|--------------------|
+| id          | int         | Identyfikator tagu |
+| name        | varchar(50) | Nazwa tagu         |
 
 
 ##Scenariusze użycia aplikacji
